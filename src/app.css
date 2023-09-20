@@ -52,50 +52,50 @@ button:hover {
   margin: 0;
 }
 
-.sidebarNotes {
+.sidebarEntries {
   height: calc(100vh - 78px);
   overflow-y: scroll;
 }
-.sidebarNote {
+.sidebarEntry {
   padding: 25px;
   cursor: pointer;
 }
-.sidebarNoteTitle {
+.sidebarEntryTitle {
   display: flex;
   justify-content: space-between;
 }
-.sidebarNote button {
+.sidebarEntry button {
   color: crimson;
 }
-.sidebarNote p {
+.sidebarEntry p {
   margin: 10px 0;
 }
-.sidebarNote small {
+.sidebarEntry small {
   display: block;
   color: #999;
 }
 
-.sidebarNote:hover {
+.sidebarEntry:hover {
   background: #ddd;
 }
-.sidebarNote.active,
-.sidebarNote.active small {
+.sidebarEntry.active,
+.sidebarEntry.active small {
   background: #08c;
   color: white;
 }
 
-/* NOTE EDITOR/PREVIEW (MAIN) STYLES */
+/* Entry EDITOR/PREVIEW (MAIN) STYLES */
 
 .main {
   width: 70%;
   height: 100vh;
 }
-.mainNoteEdit,
-.mainNotePreview {
+.mainEntryEdit,
+.mainEntryPreview {
   height: 50vh;
 }
 
-.noActiveNote {
+.noActiveEntry {
   width: 70%;
   height: 100vh;
   line-height: 100vh;
@@ -105,11 +105,11 @@ button:hover {
 }
 
 /* Editing */
-.mainNoteEdit {
+.mainEntryEdit {
   padding: 25px;
 }
 
-.mainNoteEdit input,
+.mainEntryEdit input,
 textarea {
   display: block;
   border: 1px solid #ddd;
@@ -121,13 +121,13 @@ textarea {
   font-size: inherit;
   font-family: inherit;
 }
-.mainNoteEdit input {
+.mainEntryEdit input {
   height: 50px;
   font-size: 2rem;
 }
 
 /* Preview */
-.mainNotePreview {
+.mainEntryPreview {
   border-top: 1px solid #ddd;
   overflow-y: scroll;
   background: rgba(0, 0, 0, 0.02);

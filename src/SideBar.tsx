@@ -1,22 +1,56 @@
 // import { SideBarStyle } from "./styles/App.styles";
 
-export default function SideBar() {
+type Entry = {
+  id: string;
+  title: string;
+  body: string;
+  created: Date;
+};
+
+type SidebarProps = {
+  entries: Entry[];
+  onAddEntry: () => void;
+  onDeleteEntry: (id: string) => void;
+  setActiveEntry: (id: string) => void;
+  activeEntry: boolean | string;
+};
+
+export default function Sidebar({
+  entries,
+  onAddEntry,
+  onDeleteEntry,
+  activeEntry,
+  setActiveEntry,
+}: SidebarProps) {
   return (
     <>
       <div className="sidebar">
         <div className="sidebarHeader">
-          <h1>Dear Diary</h1>
-          <button>Add</button>
+          <h1>Diary</h1>
+          <button onClick={onAddEntry}>Add</button>
         </div>
-        <div className="sidebarNotes">
-          <div className="sidebarNote">
-            <div className="sidebarNoteTitle">
-              <strong>Title</strong>
-              <button>Delete</button>
+        <div className="sidebarEntries">
+          {entries.map((entry: Entry) => (
+            <div
+              key={entry.id}
+              className={`sidebarEntry ${entry.id === activeEntry && "active"}`}
+              onClick={() => setActiveEntry(entry.id)}
+            >
+              <div className="sidebarEntryTitle">
+                <strong>{entry.title}</strong>
+                <button onClick={() => onDeleteEntry(entry.id)}>Delete</button>
+              </div>
+              <p>{entry.body && entry.body.slice(0, 100) + "...."}</p>
+              <small className="EntryMeta">
+                {entry.created.toLocaleDateString("en-GB", {
+                  weekday: "long",
+                  month: "2-digit",
+                  day: "2-digit",
+                  year: "2-digit",
+                })}
+              </small>
             </div>
-            <p>Preview</p>
-            <small className="noteMeta">Last Modified</small>
-          </div>
+          ))}
         </div>
       </div>
     </>
