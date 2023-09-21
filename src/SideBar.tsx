@@ -1,11 +1,5 @@
 // import { SideBarStyle } from "./styles/App.styles";
-
-type Entry = {
-  id: string;
-  title: string;
-  body: string;
-  created: Date;
-};
+import { Entry } from "./types/types";
 
 type SidebarProps = {
   entries: Entry[];
@@ -30,7 +24,7 @@ export default function Sidebar({
           <button onClick={onAddEntry}>Add</button>
         </div>
         <div className="sidebarEntries">
-          {entries.map((entry: Entry) => (
+          {entries.map((entry: Entry, created: number) => (
             <div
               key={entry.id}
               className={`sidebarEntry ${entry.id === activeEntry && "active"}`}
@@ -41,8 +35,8 @@ export default function Sidebar({
                 <button onClick={() => onDeleteEntry(entry.id)}>Delete</button>
               </div>
               <p>{entry.body && entry.body.slice(0, 100) + "...."}</p>
-              <small className="EntryMeta">
-                {entry.created.toLocaleDateString("en-GB", {
+              <small className="entryMeta">
+                {new Date(created).toLocaleDateString("en-GB", {
                   weekday: "long",
                   month: "2-digit",
                   day: "2-digit",

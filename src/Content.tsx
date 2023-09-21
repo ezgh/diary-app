@@ -1,11 +1,5 @@
 import ReactMarkdown from "react-markdown";
-
-type Entry = {
-  id: string;
-  title: string;
-  body: string;
-  created: Date;
-};
+import { Entry } from "./types/types";
 
 type ContentProps = {
   activeEntry: Entry | null;
