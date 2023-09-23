@@ -9,7 +9,7 @@ import {
   MarkdownPreview,
 } from "./styles/Content.styles";
 import { ToggleButton } from "./styles/Button";
-import { AiOutlinePlus, AiOutlineLine } from "react-icons/ai";
+import { AiOutlineUp, AiOutlineDown } from "react-icons/ai";
 
 type ContentProps = {
   activeEntry: Entry | null;
@@ -40,9 +40,9 @@ export default function Content({ activeEntry, onUpdateEntry }: ContentProps) {
     <Main>
       <ToggleButton onClick={toggleEditVisibility}>
         {isEditVisible ? (
-          <AiOutlineLine size={20} />
+          <AiOutlineUp size={25} />
         ) : (
-          <AiOutlinePlus size={20} />
+          <AiOutlineDown size={25} />
         )}
       </ToggleButton>
       {isEditVisible && (

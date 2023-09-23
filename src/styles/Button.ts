@@ -8,13 +8,13 @@ export const Button = styled.button<{ $primary?: boolean }>`
   font-size: inherit;
   font-family: inherit;
   cursor: pointer;
-  color: ${(props) => (props.$primary ? "crimson" : "#08c")};
+  color: ${(props) => (props.$primary ? "#DE3163" : "#9acd32")};
 
   &:hover {
-    color: #04c;
+    color: #893f45;
   }
 `;
 
 export const ToggleButton = styled(Button)`
-  margin: 10px 0 10px 20px;
+  margin: 10px 0 10px 25px;
 `;

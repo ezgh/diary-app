@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
 
 * {
   box-sizing: border-box;
+
 }
 
 body{
@@ -13,6 +14,7 @@ body{
   height: 100vh;
   overflow: hidden;
   font-size: 16px;
-  background: url(https://www.toptal.com/designers/subtlepatterns/patterns/lightpaperfibers.png);
+  background-color:#FFFFFF;
+
 }
 `;

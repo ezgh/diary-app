@@ -26,15 +26,15 @@ export const SidebarEntry = styled.div`
   cursor: pointer;
 
   &:hover {
-    background: #ddd;
+    background: #e3f988;
   }
 
   &.active {
-    background: #08c;
+    background: #9acd32;
     color: white;
 
     small {
-      background: #08c;
+      background: #9acd32;
       color: white;
     }
   }
@@ -49,6 +49,5 @@ export const SidebarEntryTitle = styled.div`
   }
   small {
     display: block;
-    color: #999;
   }
 `;

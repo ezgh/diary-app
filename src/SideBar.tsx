@@ -1,3 +1,5 @@
+import logo from "./assets/Logo.svg";
+
 import {
   Main,
   SidebarHeader,
@@ -27,7 +29,7 @@ export default function Sidebar({
   return (
     <Main>
       <SidebarHeader>
-        <h1>Diary</h1>
+        <img src={logo} alt="logo" width={140} />
         <Button onClick={onAddEntry}>Add</Button>
       </SidebarHeader>
       <SidebarEntries>
