@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Entry } from "./types/types";
+import { Entry } from "../types/types";
 import {
   Main,
   NoActiveEntry,
@@ -7,8 +7,8 @@ import {
   MainEntryPreview,
   PreviewTitle,
   MarkdownPreview,
-} from "./styles/Content.styles";
-import { ToggleButton } from "./styles/Button";
+} from "../styles/Content.styles";
+import { ToggleButton } from "../styles/Button";
 import { AiOutlineUp, AiOutlineDown } from "react-icons/ai";
 
 type ContentProps = {

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "./assets/Logo.svg";
+import logo from "../assets/Logo.svg";
 
 import {
   Main,
@@ -7,10 +7,10 @@ import {
   SidebarEntries,
   SidebarEntry,
   SidebarEntryTitle,
-} from "./styles/Sidebar.styles";
-import { Button } from "./styles/Button";
+} from "../styles/Sidebar.styles";
+import { Button } from "../styles/Button";
 
-import { Entry } from "./types/types";
+import { Entry } from "../types/types";
 
 type SidebarProps = {
   entries: Entry[];
