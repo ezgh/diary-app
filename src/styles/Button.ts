@@ -14,3 +14,7 @@ export const Button = styled.button<{ $primary?: boolean }>`
     color: #04c;
   }
 `;
+
+export const ToggleButton = styled(Button)`
+  margin: 10px 0 10px 20px;
+`;

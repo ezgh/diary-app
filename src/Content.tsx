@@ -1,5 +1,5 @@
+import { useState } from "react";
 import { Entry } from "./types/types";
-
 import {
   Main,
   NoActiveEntry,
@@ -8,6 +8,8 @@ import {
   PreviewTitle,
   MarkdownPreview,
 } from "./styles/Content.styles";
+import { ToggleButton } from "./styles/Button";
+import { AiOutlinePlus, AiOutlineLine } from "react-icons/ai";
 
 type ContentProps = {
   activeEntry: Entry | null;
@@ -15,6 +17,8 @@ type ContentProps = {
 };
 
 export default function Content({ activeEntry, onUpdateEntry }: ContentProps) {
+  const [isEditVisible, setIsEditVisible] = useState(true);
+
   const onEditField = (key: keyof Entry, value: string) => {
     if (activeEntry) {
       onUpdateEntry({
@@ -24,28 +28,41 @@ export default function Content({ activeEntry, onUpdateEntry }: ContentProps) {
     }
   };
 
+  const toggleEditVisibility = () => {
+    setIsEditVisible((prevVisible) => !prevVisible);
+  };
+
   if (!activeEntry) {
     return <NoActiveEntry>No diary selected</NoActiveEntry>;
   }
 
   return (
     <Main>
-      <MainEntryEdit>
-        <input
-          type="text"
-          id="title"
-          autoFocus
-          value={activeEntry.title}
-          onChange={(e) => onEditField("title", e.target.value)}
-        />
-        <textarea
-          id="body"
-          value={activeEntry.body}
-          onChange={(e) => onEditField("body", e.target.value)}
-          placeholder="Dear Diary..."
-        />
-      </MainEntryEdit>
-      <MainEntryPreview>
+      <ToggleButton onClick={toggleEditVisibility}>
+        {isEditVisible ? (
+          <AiOutlineLine size={20} />
+        ) : (
+          <AiOutlinePlus size={20} />
+        )}
+      </ToggleButton>
+      {isEditVisible && (
+        <MainEntryEdit>
+          <input
+            type="text"
+            id="title"
+            autoFocus
+            value={activeEntry.title}
+            onChange={(e) => onEditField("title", e.target.value)}
+          />
+          <textarea
+            id="body"
+            value={activeEntry.body}
+            onChange={(e) => onEditField("body", e.target.value)}
+            placeholder="Dear Diary..."
+          />
+        </MainEntryEdit>
+      )}
+      <MainEntryPreview $large>
         <PreviewTitle>{activeEntry.title}</PreviewTitle>
         <MarkdownPreview>{activeEntry.body}</MarkdownPreview>
       </MainEntryPreview>

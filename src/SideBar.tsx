@@ -43,7 +43,7 @@ export default function Sidebar({
                 Delete
               </Button>
             </SidebarEntryTitle>
-            <p>{entry.body && entry.body.slice(0, 100) + "...."}</p>
+            <p>{entry.body && entry.body.slice(0, 50) + "...."}</p>
             <small>
               {new Date(entry.created).toLocaleDateString("en-GB", {
                 weekday: "long",

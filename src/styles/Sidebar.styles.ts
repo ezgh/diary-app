@@ -17,9 +17,7 @@ export const SidebarHeader = styled.div`
 `;
 
 export const SidebarEntries = styled.div`
-  height: calc(
-    100vh - 78px
-  ); /* Use variables or calculations based on design */
+  height: calc(100vh - 78px);
   overflow-y: scroll;
 `;
 

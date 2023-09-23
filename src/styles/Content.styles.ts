@@ -38,8 +38,8 @@ export const MainEntryEdit = styled.div`
   }
 `;
 
-export const MainEntryPreview = styled.div`
-  height: 50vh;
+export const MainEntryPreview = styled.div<{ $large?: boolean }>`
+  height: ${(props) => (props.$large ? "100vh" : "50vh")};
   border-top: 1px solid #ddd;
   overflow-y: scroll;
   background: rgba(0, 0, 0, 0.02);
