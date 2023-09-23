@@ -31,7 +31,7 @@ export default function Sidebar({
         <Button onClick={onAddEntry}>Add</Button>
       </SidebarHeader>
       <SidebarEntries>
-        {entries.map((entry: Entry, created: number) => (
+        {entries.map((entry: Entry) => (
           <SidebarEntry
             key={entry.id}
             className={entry.id === activeEntry ? "active" : ""}
@@ -45,7 +45,7 @@ export default function Sidebar({
             </SidebarEntryTitle>
             <p>{entry.body && entry.body.slice(0, 100) + "...."}</p>
             <small>
-              {new Date(created).toLocaleDateString("en-GB", {
+              {new Date(entry.created).toLocaleDateString("en-GB", {
                 weekday: "long",
                 month: "2-digit",
                 day: "2-digit",
