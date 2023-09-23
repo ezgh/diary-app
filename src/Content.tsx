@@ -1,5 +1,13 @@
-import ReactMarkdown from "react-markdown";
 import { Entry } from "./types/types";
+
+import {
+  Main,
+  NoActiveEntry,
+  MainEntryEdit,
+  MainEntryPreview,
+  PreviewTitle,
+  MarkdownPreview,
+} from "./styles/Content.styles";
 
 type ContentProps = {
   activeEntry: Entry | null;
@@ -17,34 +25,30 @@ export default function Content({ activeEntry, onUpdateEntry }: ContentProps) {
   };
 
   if (!activeEntry) {
-    return <div className="noActiveEntry">No diary selected</div>;
+    return <NoActiveEntry>No diary selected</NoActiveEntry>;
   }
 
   return (
-    <>
-      <div className="main">
-        <div className="mainEntryEdit">
-          <input
-            type="text"
-            id="title"
-            autoFocus
-            value={activeEntry.title}
-            onChange={(e) => onEditField("title", e.target.value)}
-          />
-          <textarea
-            id="body"
-            value={activeEntry.body}
-            onChange={(e) => onEditField("body", e.target.value)}
-            placeholder="Dear Diary..."
-          />
-        </div>
-        <div className="mainEntryPreview">
-          <h1 className="previewTitle">{activeEntry.title}</h1>
-          <ReactMarkdown className="markdownPreview">
-            {activeEntry.body}
-          </ReactMarkdown>
-        </div>
-      </div>
-    </>
+    <Main>
+      <MainEntryEdit>
+        <input
+          type="text"
+          id="title"
+          autoFocus
+          value={activeEntry.title}
+          onChange={(e) => onEditField("title", e.target.value)}
+        />
+        <textarea
+          id="body"
+          value={activeEntry.body}
+          onChange={(e) => onEditField("body", e.target.value)}
+          placeholder="Dear Diary..."
+        />
+      </MainEntryEdit>
+      <MainEntryPreview>
+        <PreviewTitle>{activeEntry.title}</PreviewTitle>
+        <MarkdownPreview>{activeEntry.body}</MarkdownPreview>
+      </MainEntryPreview>
+    </Main>
   );
 }

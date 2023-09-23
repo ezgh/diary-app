@@ -1,4 +1,12 @@
-// import { SideBarStyle } from "./styles/App.styles";
+import {
+  Main,
+  SidebarHeader,
+  SidebarEntries,
+  SidebarEntry,
+  SidebarEntryTitle,
+} from "./styles/Sidebar.styles";
+import { Button } from "./styles/Button";
+
 import { Entry } from "./types/types";
 
 type SidebarProps = {
@@ -17,36 +25,36 @@ export default function Sidebar({
   setActiveEntry,
 }: SidebarProps) {
   return (
-    <>
-      <div className="sidebar">
-        <div className="sidebarHeader">
-          <h1>Diary</h1>
-          <button onClick={onAddEntry}>Add</button>
-        </div>
-        <div className="sidebarEntries">
-          {entries.map((entry: Entry, created: number) => (
-            <div
-              key={entry.id}
-              className={`sidebarEntry ${entry.id === activeEntry && "active"}`}
-              onClick={() => setActiveEntry(entry.id)}
-            >
-              <div className="sidebarEntryTitle">
-                <strong>{entry.title}</strong>
-                <button onClick={() => onDeleteEntry(entry.id)}>Delete</button>
-              </div>
-              <p>{entry.body && entry.body.slice(0, 100) + "...."}</p>
-              <small className="entryMeta">
-                {new Date(created).toLocaleDateString("en-GB", {
-                  weekday: "long",
-                  month: "2-digit",
-                  day: "2-digit",
-                  year: "2-digit",
-                })}
-              </small>
-            </div>
-          ))}
-        </div>
-      </div>
-    </>
+    <Main>
+      <SidebarHeader>
+        <h1>Diary</h1>
+        <Button onClick={onAddEntry}>Add</Button>
+      </SidebarHeader>
+      <SidebarEntries>
+        {entries.map((entry: Entry, created: number) => (
+          <SidebarEntry
+            key={entry.id}
+            className={entry.id === activeEntry ? "active" : ""}
+            onClick={() => setActiveEntry(entry.id)}
+          >
+            <SidebarEntryTitle>
+              <strong>{entry.title}</strong>
+              <Button $primary onClick={() => onDeleteEntry(entry.id)}>
+                Delete
+              </Button>
+            </SidebarEntryTitle>
+            <p>{entry.body && entry.body.slice(0, 100) + "...."}</p>
+            <small>
+              {new Date(created).toLocaleDateString("en-GB", {
+                weekday: "long",
+                month: "2-digit",
+                day: "2-digit",
+                year: "2-digit",
+              })}
+            </small>
+          </SidebarEntry>
+        ))}
+      </SidebarEntries>
+    </Main>
   );
 }

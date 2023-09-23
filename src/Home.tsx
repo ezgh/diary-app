@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Content from "./Content";
 import Sidebar from "./Sidebar";
+import { StyledHome } from "./styles/Home.styles";
+
 import { Entry } from "./types/types";
 
 export default function Home() {
@@ -47,7 +49,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="App">
+      <StyledHome>
         <Sidebar
           entries={entries}
           onAddEntry={onAddEntry}
@@ -59,7 +61,7 @@ export default function Home() {
           activeEntry={getActiveEntry() ?? null}
           onUpdateEntry={onUpdateEntry}
         />
-      </div>
+      </StyledHome>
     </>
   );
 }
