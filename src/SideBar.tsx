@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "./assets/Logo.svg";
 
 import {
@@ -29,7 +30,9 @@ export default function Sidebar({
   return (
     <Main>
       <SidebarHeader>
-        <img src={logo} alt="logo" width={140} />
+        <Link to="/About">
+          <img src={logo} alt="logo" width={140} />
+        </Link>
         <Button onClick={onAddEntry}>Add</Button>
       </SidebarHeader>
       <SidebarEntries>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Content from "./Content";
 import Sidebar from "./Sidebar";
+
 import { StyledHome } from "./styles/Home.styles";
 
 import { Entry } from "./types/types";
