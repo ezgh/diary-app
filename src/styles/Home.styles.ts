@@ -9,4 +9,7 @@ export const StyledHome = styled.div`
   overflow: hidden;
   font-size: 16px;
   background: url(https://www.toptal.com/designers/subtlepatterns/patterns/lightpaperfibers.png);
+   @media (max-width: 768px) {
+
+
 `;

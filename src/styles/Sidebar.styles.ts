@@ -1,9 +1,14 @@
 import styled from "styled-components";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 export const Main = styled.div`
   width: 30%;
   height: 100vh;
   border-right: 1px solid #ddd;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const SidebarHeader = styled.div`
@@ -49,5 +54,29 @@ export const SidebarEntryTitle = styled.div`
   }
   small {
     display: block;
+  }
+`;
+
+export const MobileMain = styled.div<{ $sidebarOpen?: boolean }>`
+  height: 100vh;
+  border-right: 1px solid #ddd;
+  @media (min-width: 769px) {
+    display: none;
+  }
+  position: fixed;
+  left: ${(props) => (props.$sidebarOpen ? "0" : "-100%")};
+  background-color: white;
+  z-index: 2;
+  transition: right 0.3s ease-in-out;
+`;
+
+export const HamburgerButton = styled(GiHamburgerMenu)`
+  margin-top: 10px;
+  font-size: 25px;
+  color: #9acd32;
+  width: 100%;
+
+  &:hover {
+    color: #893f45;
   }
 `;

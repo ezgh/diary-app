@@ -4,15 +4,29 @@ import styled from "styled-components";
 export const Main = styled.div`
   width: 70%;
   height: 100vh;
+  @media (max-width: 450px) {
+    left: 30px;
+    position: fixed;
+    width: 90%;
+  }
+  @media (max-width: 768px) and (min-width: 451px) {
+    left: 45px;
+    position: relative;
+    width: 90%;
+  }
 `;
 
 export const NoActiveEntry = styled.div`
-  width: 70%;
+  width: 60%;
   height: 100vh;
   line-height: 100vh;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #999;
+  @media (max-width: 768px) {
+    left: 40px;
+    position: relative;
+  }
 `;
 
 export const MainEntryEdit = styled.div`

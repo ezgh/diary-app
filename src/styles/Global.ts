@@ -15,6 +15,8 @@ body{
   overflow: hidden;
   font-size: 16px;
   background-color:#FFFFFF;
-
+@media (max-width: 768px) {
+    width:auto;
+  }
 }
 `;

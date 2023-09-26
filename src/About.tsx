@@ -35,7 +35,12 @@ export default function About() {
         <p>
           ©2023 <a href="https://ezgikaraca.com/">ezgikaraca.com</a>
         </p>
-        <img src={screenshot2} width={700} alt="app screenshot" />
+        <img
+          className="screenshot"
+          src={screenshot2}
+          width={700}
+          alt="app screenshot"
+        />
       </StyledAbout>
     </>
   );
