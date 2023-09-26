@@ -5,19 +5,19 @@ export const Main = styled.div`
   width: 70%;
   height: 100vh;
   @media (max-width: 450px) {
-    left: 30px;
+    left: 13%;
     position: fixed;
     width: 90%;
   }
   @media (max-width: 768px) and (min-width: 451px) {
-    left: 45px;
     position: relative;
+    left: 13%;
     width: 90%;
   }
 `;
 
 export const NoActiveEntry = styled.div`
-  width: 60%;
+  width: 90%;
   height: 100vh;
   line-height: 100vh;
   text-align: center;

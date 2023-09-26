@@ -39,7 +39,7 @@ export default function Sidebar({
 
   return (
     <>
-      <MobileMain $sidebarOpen style={{ width: sidebarOpen ? "90%" : "10%" }}>
+      <MobileMain $sidebarOpen style={{ width: sidebarOpen ? "90%" : "15%" }}>
         <HamburgerButton size={25} color={"#9acd32"} onClick={toggleSidebar} />{" "}
         {sidebarOpen && (
           <div>
